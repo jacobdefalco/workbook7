@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Place holder</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">HOME</a>
+      <a href="todos.html">To Do's</a>
+      <a href="users.html">Users</a>
+    </header>
+    <main>
+      <h2>To Do's</h2>
+      <input
+        type="number"
+        id="input-todo"
+        name="input-todo"
+        placeholder="Enter To Do"
+      />
+      <button type="button" id="btn" onclick="getToDo()">Load To Do</button>
+      <div id="result-div"></div>
+    </main>
+    <footer></footer>
+    <script>
+      const inputToDo = document.querySelector("#input-todo");
+      const button = document.querySelector("#btn");
+      const resultDiv = document.querySelector("#result-div");
+      function getToDo() {
+        fetch(`https://jsonplaceholder.typicode.com/todos/${inputToDo.value}`)
+          .then((response) => {
+            return response.json();
+          })
+          .then((response) => {
+            let responseTotal = `${response.id}. ${response.title}.
+            Completed: ${response.completed}`;
+            resultDiv.innerText = responseTotal;
+          });
+      }
+    </script>
+  </body>
+</html>
