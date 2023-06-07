@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Lookup</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css"
+    />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <h1>Weather Forecast</h1>
+      <h6 style="font-size: 14px; margin-bottom: 0">
+        **Cities listed in order of population
+      </h6>
+      <select name="cities" id="cities-ddl" onchange="fetchCities(value)"></select>
+      <div id="city-div" style="text-align: center;"></div>
+      <table style="border: 1px solid;">
+        <thead>
+          <th>Time of Day</th>
+          <th>Temperature</th>
+          <th>Winds</th>
+          <th>Precipitation</th>
+          <th>Dewpoint</th>
+          <th>Humidity</th>
+          <th>Short Forecast</th>
+          <th>Icon</th>
+        </thead>
+        <tbody id="weather-details-tbody"></tbody>
+      </table>
+    </main>
+    <footer></footer>
+    <script src="main.js"></script>
+  </body>
+</html>
