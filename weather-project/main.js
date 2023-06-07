@@ -27,6 +27,7 @@ function loadCitiesInDDL(citiesArray) {
 }
 
 function fetchAndLoadWeatherDetailsInTable(citiesArray, value) {
+  cityNameDisplay.innerText = "";
   let matchingCity = citiesArray.filter((r) => r.rank == value);
   cityNameDisplay.innerText =
     citiesDDL.options[citiesDDL.selectedIndex].innerText +
@@ -39,11 +40,14 @@ function fetchAndLoadWeatherDetailsInTable(citiesArray, value) {
 }
 
 function fetchCities(value) {
+  weatherDetailsTbody.innerHTML = "";
   fetch(
     "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json"
   )
     .then((response) => response.json())
-    .then((json) => fetchAndLoadWeatherDetailsInTable(json, value));
+    .then((jsonedArray) =>
+      fetchAndLoadWeatherDetailsInTable(jsonedArray, value)
+    );
 }
 
 function fetchForecast(matchingCity) {
@@ -78,7 +82,9 @@ function buildWeatherDetailsRow(matchingCity) {
     }
 
     let cell5 = row.insertCell(4);
-    cell5.innerText = `${matchingCity.properties.periods[i].dewpoint.value.toFixed(1)}%`;
+    cell5.innerText = `${matchingCity.properties.periods[
+      i
+    ].dewpoint.value.toFixed(1)}%`;
 
     let cell6 = row.insertCell(5);
     cell6.innerText = `${matchingCity.properties.periods[i].relativeHumidity.value}%`;
