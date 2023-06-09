@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northwind Grocery</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css"
+    />
+  </head>
+  <body>
+    <header style="text-align: center">
+      ||
+      <a href="index.html">HOME</a>
+      ||
+      <a href="search.html">SEARCH</a>
+      ||
+      <a href="details.html">DETAILS</a>
+      ||
+    </header>
+    <main style="align-self: center">
+      <h1 id="product-name-title" style="text-align: center"></h1>
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Price</th>
+          <th>In Stock</th>
+          <th>Supplier</th>
+          <th>Discontinued?</th>
+        </thead>
+        <tbody id="product-details-tbody"></tbody>
+      </table>
+    </main>
+    <footer></footer>
+    <script src="main.js"></script>
+  </body>
+</html>

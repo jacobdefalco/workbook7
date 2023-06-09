@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northwind Grocery</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css"
+    />
+  </head>
+  <body>
+    <header style="text-align: center">
+      ||
+      <a href="index.html">HOME</a>
+      ||
+      <a href="search.html">SEARCH</a>
+      ||
+      <a href="details.html">DETAILS</a>
+      ||
+    </header>
+    <main style="align-self: center">
+      <h1 style="text-align: center">Search for prouducts</h1>
+      <select name="search-by" id="search-by-DDL" onchange="handleDDLChoice()">
+        <option value="0" id="default-option">Select One...</option>
+        <option value="category" id="category-search">
+          Search by category
+        </option>
+        <option value="view-all" id="view-all-search">View all</option>
+      </select>
+      <select
+        name="categories"
+        id="categories-DDL"
+        style="display: none; width: fit-content; margin-left: 3em"
+        onchange="filterProductsByCategory()"
+      ></select>
+      <h4 style="text-align: center">Products</h4>
+      <table>
+        <thead>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+        </thead>
+        <tbody id="products-tbody"></tbody>
+      </table>
+    </main>
+    <footer></footer>
+    <script src="main.js"></script>
+  </body>
+</html>
