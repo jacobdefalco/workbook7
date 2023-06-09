@@ -16,12 +16,10 @@
       ||
       <a href="search.html">SEARCH</a>
       ||
-      <a href="details.html">DETAILS</a>
-      ||
     </header>
     <main style="align-self: center">
-      <h1 style="text-align: center">Search for prouducts</h1>
-      <select name="search-by" id="search-by-DDL" onchange="handleDDLChoice()">
+      <h1 style="text-align: center">Search for products</h1>
+      <select name="search-by" id="search-by-DDL" style="width: fit-content;" onchange="handleDDLChoice()">
         <option value="0" id="default-option">Select One...</option>
         <option value="category" id="category-search">
           Search by category
@@ -34,7 +32,7 @@
         style="display: none; width: fit-content; margin-left: 3em"
         onchange="filterProductsByCategory()"
       ></select>
-      <h4 style="text-align: center">Products</h4>
+      <h4 style="text-align: center" id="search-results-header"></h4>
       <table>
         <thead>
           <th>ID</th>

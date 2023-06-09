@@ -3,6 +3,7 @@
 const searchByDDL = document.querySelector("#search-by-DDL");
 const categoriesDDL = document.querySelector("#categories-DDL");
 const productsTbody = document.querySelector("#products-tbody");
+const searchResultHeader = document.querySelector("#search-results-header");
 
 window.onload = function defaultPage() {
   searchByDDL.value == "0";
@@ -43,6 +44,8 @@ function fetchAndDisplayCategories() {
 
 function populateDDLWithCategories(categories) {
   categoriesDDL.innerHTML = "";
+  let defaultOption = new Option("Select a category");
+  categoriesDDL.appendChild(defaultOption);
   for (let i = 0; i < categories.length; i++) {
     let newOption = new Option(categories[i].name, categories[i].categoryId);
     categoriesDDL.appendChild(newOption);
@@ -63,13 +66,16 @@ function filterProductsByCategory() {
 function handleDDLChoice() {
   if (searchByDDL.value == "view-all") {
     categoriesDDL.style.display = "none";
+    searchResultHeader.innerText = "All Products";
     fetchAndDisplayAllProducts();
   } else if (searchByDDL.value == "category") {
     productsTbody.innerHTML = "";
     categoriesDDL.style.display = "block";
+    searchResultHeader.innerText = "Products by category";
     fetchAndDisplayCategories();
   } else {
     productsTbody.innerHTML = "";
+    searchResultHeader.innerText = "";
     categoriesDDL.style.display = "none";
   }
 }
